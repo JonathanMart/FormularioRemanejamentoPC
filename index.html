@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+   
+    
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="js/bg.js"></script>
+<script src="bg.haml"></script>
+<script src="bg.scss"></script>
+<script src="https://kit.fontawesome.com/47c9c3ebd3.js" crossorigin="anonymous"></script>   
+<title>Remanejamento</title>
+</head>
+<body>
+    <div class="animation-area">
+        <ul class="box-area">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+<header class="d-flex justify-content-center mt-5">
+    <nav id="navbar">
+     <h1>Remanejamento Cidade Administrativa</h1>
+    </nav>
+</header>
+
+
+<section id="dadospessoais"> <!--formulario tela 1-->
+    <div>
+        <form id="formulariodadospessoais">
+            <legend>Dados do Solicitante:</legend>
+
+            <span id="mensagem"></span>
+            <fieldset>
+                 <label for="nomeuser">Nome Completo:</label><br> <!---Campo Nome Completo tela1-->
+                <input type="text" id="nomeuser" placeholder="Seu nome..." required><br><!---Input Nome Completo tela1-->
+
+                <label for="ramaluser">Ramal do Responsavel:</label>  <!---Campo Ramal do responsavel tela1-->
+                    <input type="text" id="ramaluser" placeholder="Seu ramal..."><br> <!---Input Ramal do responsavel tela1-->
+
+                <label for="emailuser">E-mail:</label><br>
+                <input id="emailuser" type="email" placeholder="user@saude.mg.gov.br" required><br>
+
+                <div class="butoestela1"> <!--Butões tela 1-->
+                    <button type="button" class="btn btn-primary" id="proximo1" onclick="proximo()">Proximo</button>
+                    <button type="button" class="btn btn-warning" id="limpar1" onclick="limpar()">Limpar</button>
+                    <button type="button" class="btn" id="ocultar" onclick="ocultar()">Ocultar</button>
+                </div>
+            </fieldset>
+           
+        </form>
+
+       
+        
+    </div>
+
+    
+
+</section>
+
+       
+
+<section id="formularioremanejamento" class="invisible" >
+        <div>
+            <form class="form-control">
+                <legend>Dados do Remanejamento:</legend>
+                <fieldset>
+                    <label>Tipo do Dispositivo:&nbsp; &nbsp; &nbsp; &nbsp;  </label>
+
+                    <select id="selecionardispositivos">
+                        <option> --Selecionar-- </option>
+                        <option value="Phone 7945">CISCO IP Phone 7945</option>
+                        <option value="Phone 7906">CISCO IP Phone 7906</option>
+                        <option value="Phone 7965">CISCO IP Phone 7965</option>
+                        <option value="Phone 7915">CISCO IP Phone 7915</option>
+                        <option value="COMPUTADOR">COMPUTADOR</option>
+                        <option value="NOTEBOOK">NOTEBOOK</option>
+                        
+                    </select><hr> 
+
+                    <br><label for="numeroramal">Nº Ramal: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                    <input type="tel" id="numeroramal"><hr>
+
+                    <label for="numeropatrimonio">Nº Patrimônio:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                    <input type="text" id="numeropatrimonio"> 
+                        
+                    <label for="numerodeserie">N° De Série: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                    <input type="text" id="numerodeserie"><hr> 
+
+
+
+                    <br><label for="numerodaestacao">N° Da Estação de Origem:</label>
+                    <input type="text" id="numerodaestacao">
+                    
+                    <label for="estacaodedestino">Nº Estação de Destino:</label>
+                    <input type="text" id="estacaodedestino"><hr>
+
+
+                    <label for="numeropontorede">N° Estação de Origem:&nbsp; &nbsp; &nbsp;</label>
+                    <input type="text" id="numeropontorede">
+
+                    <label for="numeropontorededestino">N° Estação de Destino:&nbsp; </label>
+                    <input type="text" id="numeropontorededestino"><hr>
+
+                    <label for="estacaovazia">Estação de Origem ficará vazia?</label>
+                    <select id="estacaovazia">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+
+                    </select>
+                  
+                    <hr>
+                    <label>Condição da Estação de Destino</label>
+                    <select id="condicaoestacao">
+
+                        <option>VAZIA</option>
+                        <option>TROCA VICE-VERSA</option>
+                        <Option>TROCA ALTERNADA</Option>
+                        <Option>REMOÇÃO</Option>
+                        <Option>INSTALAÇÃO</Option>
+                    
+                    </select><hr>
+                    
+                    <label for="setororigem">Setor de Origem:</label>
+                    <input type="text" id="setororigem">
+
+                    <label for="setordedestino">Setor de Destino:</label>
+                    <input type="text" id="setordedestino">
+
+
+                    
+                   
+                </fieldset><br>
+                <div id="botoesremanejamento">
+                    <button type="button" class="btn btn-success" onclick="adicionar()">Adicionar</button>
+                    <button type="button" class="btn btn-warning" onclick="cancelar()">Cancelar</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Ver Adicionados</button>
+                   
+                </div>
+            </form>
+            
+           
+        </div>
+            
+</section>
+
+<div>
+
+    
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Planilha Remanejamento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <table  class="table" id="camporamal" >
+                <thead>
+                    <tr>
+                      <th scope="col">Tipo do Dispositivo:</th>
+                      <th scope="col">Nº Ramal:</th>
+                      <th scope="col">Nº Patrimonio:</th>
+                      <th scope="col">Nº Série:</th>
+                      <th scope="col">Nº Estação Origem:</th>
+                      <th scope="col">Nº Estação Destino:</th>
+                      <th scope="col">Nº Ponto de Origem:</th>
+                      <th scope="col">Nº Ponto de Destino:</th>
+                      <th scope="col">Estação de Origem ficará vazia?</th>
+                      <th scope="col">Condição da Estação de Destino:</th>
+                      <th scope="col">Setor de Origem:</th>
+                      <th scope="col">Setor de Destino:</th>
+                      <th scope="col">Excluir<th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="campodispositivo"> </td>
+                      <td id="campodoramal"></td>                      
+                      <td id="campopatrimonio"></td>
+                      <td id="camponumeroserie"></td>
+                      <td id="campoestacao"></td>
+                      <td id="campoestacaodestino"></td>
+                      <td id="campopontoorigem"></td>
+                      <td id="campopontodestino"></td>
+                      <td id="campoestacaovazia"></td>
+                      <td id="campocondicaoestacao"></td>
+                      <td id="camposetororigem"></td>
+                      <td id="camposetordestino"></td>
+                      <td >
+                        <button id="btnexcluir">
+                            <i class="fa-sharp fa-solid fa-trash" onclick="deletar()"></i>
+                        </button>
+                      </td>
+                    </tr>
+              
+                 
+                   
+                  </tbody>
+
+
+            </table>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    
+</body>
+
+</html>
